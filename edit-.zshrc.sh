@@ -18,9 +18,6 @@
 # edit-zshrc.sh — open Alacritty → nvim ~/.zshrc → source after quit
 
 alacritty --working-directory "$HOME" \
-  -e zsh -c 'lvim ~/.zshrc; status=$?; if [ $status -eq 0 ]; then source ~/.zshrc; fi' >/dev/null 2>&1
+  -e zsh -c 'nvim ~/.zshrc; status=$?; if [ $status -eq 0 ]; then source ~/.zshrc; fi' >/dev/null 2>&1
 
 echo "✅ Reloaded ~/.zshrc"
-
-
-

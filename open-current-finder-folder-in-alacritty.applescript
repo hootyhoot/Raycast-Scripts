@@ -24,7 +24,7 @@ on run
     end if
   end tell
 
-  set shellCommand to "eza -la --no-user --header; exec zsh"
+  set shellCommand to "ls -a; exec zsh"
 
   -- Launch Alacritty CLI directly
   do shell script "/opt/homebrew/bin/alacritty --working-directory " & quoted form of dirPath & " -e zsh -c " & quoted form of shellCommand & " >/dev/null 2>&1 &"
