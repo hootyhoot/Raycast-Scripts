@@ -1,6 +1,6 @@
 # Customisation Instructions
 
-## open-current-finder-folder-in-alacritty
+# open-current-finder-folder-in-alacritty
 
 This AppleScript opens the current Finder folder in your terminal of choice.
 
@@ -52,7 +52,7 @@ Common paths: `/opt/homebrew/bin/alacritty`, `/usr/local/bin/alacritty`, `~/Appl
 
 ---
 
-## open-current-finder-folder-in-claude-code
+# open-current-finder-folder-in-claude-code
 
 This AppleScript opens the current Finder folder in Claude Code within your terminal of choice.
 
@@ -113,7 +113,7 @@ do shell script "/opt/homebrew/bin/wezterm start --cwd " & quoted form of dirPat
 
 ---
 
-## open-current-finder-folder-in-code
+# open-current-finder-folder-in-code
 
 This AppleScript opens the current Finder folder in Visual Studio Code.
 
@@ -138,7 +138,7 @@ Replace `/Applications/Visual Studio Code.app` with your VS Code installation pa
 
 ---
 
-## edit-.zshrc
+# edit-.zshrc
 
 This script opens your `.zshrc` file in a terminal editor, then automatically reloads it after you save and exit.
 
