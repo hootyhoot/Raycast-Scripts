@@ -1,5 +1,68 @@
 # Customisation Instructions
 
+# open-current-finder-file-in-helix
+
+This AppleScript opens the current selected Finder file in Helix within your terminal of choice.
+
+  ### To customize for your text editor: 
+
+  Find line 31 and update the Helix path:
+
+```applescript
+  set shellCommand to "/opt/homebrew/bin/hx " & quoted form of filePath & "; exec zsh"
+```
+
+  If Helix is installed elsewhere, replace the path. Common locations:
+  - `/opt/homebrew/bin/hx` (Homebrew on Apple Silicon)
+  - `/usr/local/bin/hx` (Homebrew on Intel)
+  - `~/.cargo/bin/hx` (Cargo install)
+
+  **For a different text editor, replace hx with your editor command:**
+  - Neovim: `/opt/homebrew/bin/nvim`
+  - Vim: `/usr/bin/vim`
+  - Nano: `/usr/bin/nano`
+  - Micro: `/opt/homebrew/bin/micro`
+  - Kakoune: `/opt/homebrew/bin/kak`
+
+  ### To customize for your terminal:
+
+  Find line 34 and update the terminal path:
+
+```applescript
+  do shell script "/opt/homebrew/bin/alacritty -e zsh -c " & quoted form of shellCommand & " >/dev/null 2>&1 &"
+```
+
+  **For iTerm2:**
+  Replace line 34 with:
+  
+```applescript
+  tell application "iTerm"
+      activate
+      create window with default profile
+      tell current session of current window
+          write text shellCommand
+      end tell
+  end tell
+```
+
+  **For macOS Terminal:**
+  Replace line 34 with:
+  
+```applescript
+  tell application "Terminal"
+      activate
+      do script shellCommand
+  end tell
+```
+
+  **For Kitty:**
+  `do shell script "/opt/homebrew/bin/kitty -e zsh -c " & quoted form of shellCommand & " >/dev/null 2>&1 &"`
+
+  **For WezTerm:**
+  `do shell script "/opt/homebrew/bin/wezterm start -- zsh -c " & quoted form of shellCommand & " >/dev/null 2>&1 &"`
+
+--- 
+
 # open-current-finder-folder-in-alacritty
 
 This AppleScript opens the current Finder folder in your terminal of choice.
